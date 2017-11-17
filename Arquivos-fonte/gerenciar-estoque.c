@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "produto.h"
 
 Struct no{
   Produto p;
@@ -130,4 +129,3 @@ void reinicializaLista(LISTA *l){
     l->inicio = NULL;
     l->fim = NULL;
 }
-
