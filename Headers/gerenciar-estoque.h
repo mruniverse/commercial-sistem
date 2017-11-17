@@ -3,28 +3,23 @@
 
 #include <stdio.h>
 
-Struct produto{
+typedef struct produto{
     int codigo;
+    int qntd;
     double precoCusto;
     double precoVenda;
-    string nome;
-    string categoria;
-    string validade;
-}Produto
-
-typedef int TIPOCHAVE;
-
-typedef struct{
-    TIPOCHAVE chave;
-}REGISTRO;
+    char* nome;
+    char* categoria;
+    char* validade;
+}Produto;
 
 typedef struct aux{
-    REGISTRO reg;
+    Produto p;
     struct aux* prox;
     struct aux* ant;
-}ELEMENTO;
+}No;
 
-typedef ELEMENTO* PONT;
+typedef No* PONT;
 
 typedef struct{
     PONT inicio;
@@ -35,11 +30,11 @@ typedef struct{
 void inicializarLista(LISTA *);
 int tamanhoLista(LISTA *);
 void exibirLista(LISTA *);
-PONT buscaSequencial(LISTA *, TIPOCHAVE);
-PONT buscaSequencialOrd(LISTA *, TIPOCHAVE);
-PONT buscaSequencialExc(LISTA *, TIPOCHAVE, PONT *);
-int inserirElemListaOrd(LISTA *, REGISTRO);
-int excluiElemLista(LISTA *, TIPOCHAVE);
+PONT buscaSequencial(LISTA *, int);
+PONT buscaSequencialOrd(LISTA *, int);
+PONT buscaSequencialExc(LISTA *, int, PONT *);
+int inserirElemListaOrd(LISTA *, Produto);
+int excluiElemLista(LISTA *, int);
 
 
 

@@ -1,11 +1,6 @@
 #include <stdio.h>
-
-Struct no{
-  Produto p;
-  int qntd;
-  Struct no *prox;
-  Struct no *ant;
-}No;
+#include <stdlib.h>
+#include "../Headers/gerenciar-estoque.h"
 
 void inicializarLista(LISTA *l){
    l->inicio=NULL;
@@ -25,20 +20,21 @@ int tamanhoLista(LISTA *l){
 
 void exibirLista(LISTA *l){
     PONT end = l->inicio;
-    printf("\nLista: \" ");
+    printf("\nLista: \n");
     while(end!=NULL){
-        printf("%d ", end->reg.chave);
-        end = end->prox;
+      printf("%d Unidades de ", end->p.qntd);
+      printf("%s", end->p.nome);
+      printf("\n");
+      end = end->prox;
     }
-    printf(" \"\n ");
 }
 
 
-PONT buscaSequencial(LISTA *l, TIPOCHAVE ch){
+PONT buscaSequencial(LISTA *l, int ch){
     PONT pos = l->inicio;
 
     while(pos != NULL){
-        if(pos->reg.chave == ch) return pos;
+        if(pos->p.codigo == ch) return pos;
         pos = pos->prox;
     }
 
@@ -46,33 +42,33 @@ PONT buscaSequencial(LISTA *l, TIPOCHAVE ch){
 }
 
 
-PONT buscaSequencialOrd(LISTA *l, TIPOCHAVE ch){
+PONT buscaSequencialOrd(LISTA *l, int ch){
     PONT pos = l->inicio;
-    while(pos != NULL && pos->reg.chave < ch) pos = pos->prox;
-    if(pos!=NULL && pos->reg.chave == ch) return pos;
+    while(pos != NULL && pos->p.codigo < ch) pos = pos->prox;
+    if(pos!=NULL && pos->p.codigo == ch) return pos;
     return NULL;
 }
 
 
-PONT buscaSequencialExc(LISTA *l, TIPOCHAVE ch, PONT *ant){
+PONT buscaSequencialExc(LISTA *l, int ch, PONT *ant){
     *ant = NULL;
     PONT atual = l->inicio;
-    while (atual != NULL  &&   atual->reg.chave < ch) {
+    while (atual != NULL  &&   atual->p.codigo < ch) {
         *ant = atual;
         atual = atual->prox;
     }
-    if(atual != NULL   &&   atual->reg.chave == ch) return atual;
+    if(atual != NULL   &&   atual->p.codigo == ch) return atual;
     return NULL;
 }
 
 
-int inserirElemListaOrd(LISTA *l, REGISTRO reg){
-    TIPOCHAVE ch = reg.chave;
+int inserirElemListaOrd(LISTA *l, Produto p){
+    int ch = p.codigo;
     PONT ant, i;
     i = buscaSequencialExc(l, ch, &ant);
     if(i != NULL) return -1;
-    i = (PONT) malloc(sizeof(ELEMENTO));
-    i->reg = reg;
+    i = (PONT) malloc(sizeof(No));
+    i->p = p;
     i->prox=NULL;
     i->ant=NULL;
     if(l->inicio ==NULL){
@@ -97,7 +93,7 @@ int inserirElemListaOrd(LISTA *l, REGISTRO reg){
 }
 
 
-int excluiElemLista(LISTA *l, TIPOCHAVE ch){
+int excluiElemLista(LISTA *l, int ch){
     PONT ant, i;
     i = buscaSequencialExc(l, ch, &ant);
     if(i == NULL) return -1;
