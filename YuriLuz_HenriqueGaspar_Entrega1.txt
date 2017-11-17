@@ -1,0 +1,32 @@
+GRUPO 5- Yuri Luz n�120133 e Henrique Gaspar n�120143
+
+Gerenciamento de funcionarios e estoques
+
+Usar estruturas de árvores
+-Cadastro de funcionarios, clientes e fornecedores
+-Lista Ordenada de todos os produtos(separar por mais vendidos, validade)
+-Cadastrar produtos(incluir produtos, structs)
+-controla a entrada e sa�da de produtos, registros de compra e venda
+-verificar data de validade notificando os produtos vencidos, que serao descartados do registro de estoque
+-enviar relatorio � administra��o
+
+
+Mapa conceitual:
+-realizar login do funcion�rio
+-controle de compra
+-validacao de dados
+
+Cadastro de produtos: � poss�vel registrar a quantidade do respectivo produto em estoque, pre�os de custo,
+margem de lucro, pre�o de venda � vista e pre�o de venda a prazo.
+� Sa�da de produtos por venda: ou o produto estragou ou houve efetiva��o de uma venda. Com isso, � poss�vel
+rastrear no hist�rico de movimenta��o de sa�da de produtos obtendo informa��es importantes como: data da
+sa�da do produto, quantidade de sa�da e o cliente da venda.
+� Entrada de produtos por compra*: data da entrada do produto, quantidade de entrada e o fornecedor da
+compra.
+� Estoque de produtos perec�veis*: gerenciar cada lote de compra de produtos pela sua data de validade. De
+acordo com os par�metros estabelecidos no momento do cadastro do produto, o sistema emitir� notifica��es de
+alertas de proximidade de vencimento dos produtos estocados.
+
+
+Fazer os �Relat�rios de movimenta��o do estoque� - hist�rico de entradas, sa�das, datas de movimenta��es, clientes,
+fornecedores de um ou mais produtos. Informar o saldo atual de cada produto. 
