@@ -30,7 +30,8 @@ void exibirLista(LISTA *l){
 }
 
 
-PONT buscaSequencial(LISTA *l, int ch){
+PONT buscaSequencial(LISTA *l, Produto p){
+    int ch = p.codigo;
     PONT pos = l->inicio;
 
     while(pos != NULL){
@@ -42,7 +43,8 @@ PONT buscaSequencial(LISTA *l, int ch){
 }
 
 
-PONT buscaSequencialOrd(LISTA *l, int ch){
+PONT buscaSequencialOrd(LISTA *l, Produto p){
+    int ch = p.codigo;
     PONT pos = l->inicio;
     while(pos != NULL && pos->p.codigo < ch) pos = pos->prox;
     if(pos!=NULL && pos->p.codigo == ch) return pos;
@@ -50,7 +52,8 @@ PONT buscaSequencialOrd(LISTA *l, int ch){
 }
 
 
-PONT buscaSequencialExc(LISTA *l, int ch, PONT *ant){
+PONT buscaSequencialExc(LISTA *l, Produto p, PONT *ant){
+    int ch = p.codigo;
     *ant = NULL;
     PONT atual = l->inicio;
     while (atual != NULL  &&   atual->p.codigo < ch) {
@@ -65,7 +68,7 @@ PONT buscaSequencialExc(LISTA *l, int ch, PONT *ant){
 int inserirElemListaOrd(LISTA *l, Produto p){
     int ch = p.codigo;
     PONT ant, i;
-    i = buscaSequencialExc(l, ch, &ant);
+    i = buscaSequencialExc(l, p, &ant);
     if(i != NULL) return -1;
     i = (PONT) malloc(sizeof(No));
     i->p = p;
@@ -93,9 +96,10 @@ int inserirElemListaOrd(LISTA *l, Produto p){
 }
 
 
-int excluiElemLista(LISTA *l, int ch){
+int excluiElemLista(LISTA *l, Produto p){
+    int ch = p.codigo;
     PONT ant, i;
-    i = buscaSequencialExc(l, ch, &ant);
+    i = buscaSequencialExc(l, p, &ant);
     if(i == NULL) return -1;
     if(ant == NULL){
       l->inicio = i->prox;

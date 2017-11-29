@@ -8,6 +8,7 @@ typedef struct produto{
     int qntd;
     double precoCusto;
     double precoVenda;
+    char* fornecedor;
     char* nome;
     char* categoria;
     char* validade;
@@ -30,11 +31,11 @@ typedef struct{
 void inicializarLista(LISTA *);
 int tamanhoLista(LISTA *);
 void exibirLista(LISTA *);
-PONT buscaSequencial(LISTA *, int);
-PONT buscaSequencialOrd(LISTA *, int);
-PONT buscaSequencialExc(LISTA *, int, PONT *);
+PONT buscaSequencial(LISTA *, Produto);
+PONT buscaSequencialOrd(LISTA *, Produto);
+PONT buscaSequencialExc(LISTA *, Produto, PONT *);
 int inserirElemListaOrd(LISTA *, Produto);
-int excluiElemLista(LISTA *, int);
+int excluiElemLista(LISTA *, Produto);
 
 
 

@@ -3,6 +3,22 @@
 #include "../Headers/gerenciar-estoque.h"
 
 int main(){
+    int temp;
+    
+    printf("Gerenciamento de funcionarios e de estoque\n");
+    printf("------------------------------------------\n");
+    printf("[1] Cadastro de Produtos\n");
+    printf("[2] Ponto de venda\n");
+    printf("[3] Gerenciar estoque\n");
+    printf("------------------------------------------\n");
+    printf("[0] Sair\n");
+    scanf("%d",temp);
+    switch(temp){
+        case 3:
+            printf("[1] Cadastro de produtos");
+            printf("[2] Produtos pereiveis\n");
+    }
+    
     LISTA lista;
     Produto p;
 
@@ -25,6 +41,7 @@ int main(){
     p.nome = "Abacate";
     inserirElemListaOrd(&lista, p);
     exibirLista(&lista);
+    // excluiElemLista(&lista, p);
 
     return 0;
 }
