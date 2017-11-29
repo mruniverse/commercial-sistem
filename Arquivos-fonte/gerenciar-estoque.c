@@ -20,11 +20,17 @@ int tamanhoLista(LISTA *l){
 
 void exibirLista(LISTA *l){
     PONT end = l->inicio;
-    printf("\nLista: \n");
+    printf("Lista: \n");
     while(end!=NULL){
-      printf("%d Unidades de ", end->p.qntd);
-      printf("%s", end->p.nome);
-      printf("\n");
+      printf("----------------------------------\n");
+      printf("%d Unidade(s) de ", end->p.qntd);
+      printf("%s\n", end->p.nome);
+      printf("Preço de custo: R$ %.2f\n", end->p.precoCusto);
+      printf("Preço de venda: R$ %.2f\n", end->p.precoVenda);
+      printf("Fornecedor: %s\n", end->p.fornecedor);
+      printf("Catgoria: %s\n", end->p.categoria);
+      printf("Validade: %s\n", end->p.validade);
+      printf("----------------------------------\n");
       end = end->prox;
     }
 }

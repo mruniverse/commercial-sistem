@@ -6,8 +6,8 @@
 typedef struct produto{
     int codigo;
     int qntd;
-    double precoCusto;
-    double precoVenda;
+    float precoCusto;
+    float precoVenda;
     char* fornecedor;
     char* nome;
     char* categoria;
